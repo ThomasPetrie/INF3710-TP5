@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommunicationService } from '../communication.service';
 import { EspeceOiseau } from '../../../../common/tables/EspeceOiseau';
-
+import { Statut } from '../../../../common/tables/Statut';
 
 @Component({
   selector: 'app-especeoiseau',
@@ -16,6 +16,7 @@ export class EspeceoiseauComponent implements OnInit {
   @ViewChild('newPredator') newPredator: ElementRef;
 
   especesOiseaux : EspeceOiseau[] = [];
+  Statut = Statut;
 
   constructor(private communicationService: CommunicationService) { }
 

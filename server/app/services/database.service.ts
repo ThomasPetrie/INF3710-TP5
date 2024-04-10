@@ -8,8 +8,8 @@ export class DatabaseService {
   // TODO: A MODIFIER POUR VOTRE BD
   public connectionConfig: pg.ConnectionConfig = {
     user: "postgres",
-    database: "TP5",
-    password: "4323jcmk",
+    database: "ornithologue_bd",
+    password: "caniche20",
     port: 5432,
     host: "127.0.0.1",
     keepAlive: true,
