@@ -16,7 +16,13 @@
           <td class="contentCell" contenteditable="true" (blur)="changeScientifique($event, i)">{{ oiseau.nomscientifique }}</td>
           <td class="contentCell" contenteditable="true" (blur)="changeCommun($event, i)">{{ oiseau.nomcommun }}</td>
           <td class="contentCell" contenteditable="true" (blur)="changeStatut($event, i)">{{ oiseau.statutspeces }}</td>
-          <td class="contentCell" contenteditable="true" (blur)="changePredator($event, i)">{{ oiseau.nomscientifiquecomsommer }}</td>
+          <td>
+          <select class="contentCell">
+            <div *ngFor="let oiseau of especesOiseaux">
+            <option value="oiseau.nomscientifique">{{oiseau.nomscientifique}}</option>
+            </div>
+          </select>
+        </td>
           <td class="actionCell">
             <button type="button" class="submitbtn" (click)="updateEspece(i)"><i class="fa fa-edit"></i></button>
             <button type="button" class="deletebtn" (click)="deleteEspece(oiseau.nomscientifique)"><i class="fa fa-trash-o"></i></button>
