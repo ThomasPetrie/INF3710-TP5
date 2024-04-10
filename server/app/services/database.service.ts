@@ -74,8 +74,8 @@ export class DatabaseService {
     if (espece.nomscientifique.length > 0) toUpdateValues.push(`nomscientifique = '${espece.nomscientifique}'`);
     if (espece.nomcommun && espece.nomcommun.length > 0) toUpdateValues.push(`nomcommun = '${espece.nomcommun}'`);
     if (espece.statutspeces && espece.statutspeces.length > 0) toUpdateValues.push(`statutspeces = '${espece.statutspeces}'`);
-    if (espece.nomscientifiquecomsommer !== null) toUpdateValues.push(`nomscientifiquecomsommer = '${espece.nomscientifiquecomsommer}'`);
-    if (espece.nomscientifiquecomsommer === 'null') toUpdateValues.push(`nomscientifiquecomsommer = NULL`);
+    if (espece.nomscientifiquecomsommer !== null && espece.nomscientifiquecomsommer !== 'null') toUpdateValues.push(`nomscientifiquecomsommer = '${espece.nomscientifiquecomsommer}'`);
+    else if (espece.nomscientifiquecomsommer === null || espece.nomscientifiquecomsommer === 'null') toUpdateValues.push(`nomscientifiquecomsommer = NULL`);
 
     if (
       espece.nomscientifique.length === 0 ||
@@ -87,6 +87,7 @@ export class DatabaseService {
     const query = `UPDATE ornithologue_bd.especeoiseau SET ${toUpdateValues.join(
       ", "
     )} WHERE nomscientifique = '${espece.nomscientifique}';`;
+
     const res = await client.query(query);
     client.release();
     return res;
