@@ -28,17 +28,20 @@
         </tr>
   
         <tr class="blank_row">
-          <td class="contentCell" contenteditable="true" placeholder="Nom scientifique" #newHotelNb></td>
-          <td class="contentCell" contenteditable="true" placeholder="Nom commun" #newHotelName></td>
-          <td class="contentCell" contenteditable="true" placeholder="Statut d'espèce" #newHotelCity></td>
-          <td class="contentCell" contenteditable="true" placeholder="Nom de prédateur" #newHotelCity></td>
+          <td class="contentCell" contenteditable="true" #newHotelNb (blur)="changeNewScien($event)"></td>
+          <td class="contentCell" contenteditable="true" #newHotelName (blur)="changeNewCommun($event)"></td>
+          <td class="contentCell" contenteditable="true" ></td>
+          <td class="contentCell"  #newHotelCity >
+            <select [(ngModel)]="newOiseau.nomscientifiquecomsommer">
+              <option *ngFor="let oiseau of especesOiseaux" [value]="oiseau.nomscientifique">{{oiseau.nomscientifique}}</option>
+            </select></td>
           <td class="actionCell"></td>
       </tr>
   
       </tbody>
     </table>
   
-    <button type="button" class="btn" (click)="null">+</button>
+    <button type="button" class="btn" (click)="addEspece()">+</button>
   
   </div>
   

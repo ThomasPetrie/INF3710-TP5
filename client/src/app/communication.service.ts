@@ -29,7 +29,7 @@ export class CommunicationService {
   public insertEspece(espece: EspeceOiseau): Observable<number> {
     return this.http
       .post<number>(this.BASE_URL + "/especeoiseau/insert", espece)
-      .pipe(catchError(this.handleError<number>("insertEspece")));
+      .pipe(catchError(this.handleError<number>("insertOiseau")));
   }
 
   public updateEspece(espece: EspeceOiseau): Observable<number> {

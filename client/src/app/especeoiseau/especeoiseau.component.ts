@@ -16,6 +16,7 @@ export class EspeceoiseauComponent implements OnInit {
   @ViewChild('newPredator') newPredator: ElementRef;
 
   especesOiseaux : EspeceOiseau[] = [];
+  newOiseau: EspeceOiseau = { nomscientifique: 'Nom scientifique', nomcommun: 'Nom commun', statutspeces: "Statut d'espèce", nomscientifiquecomsommer: null };
 
   constructor(private communicationService: CommunicationService) { }
 
@@ -41,10 +42,7 @@ export class EspeceoiseauComponent implements OnInit {
 
   private refresh() {
     this.getEspeces();
-    this.newScientifique.nativeElement.innerText = "";
-    this.newCommun.nativeElement.innerText = "";
-    this.newStatut.nativeElement.innerText = "";
-    this.newPredator.nativeElement.innerText = "";
+    this.newOiseau = { nomscientifique: 'Nom scientifique', nomcommun: 'Nom commun', statutspeces: "Statut d'espèce", nomscientifiquecomsommer: null };
   }
 
   public getEspeces(): void {
@@ -63,6 +61,22 @@ export class EspeceoiseauComponent implements OnInit {
     this.communicationService.deleteEspece(nomscientifique).subscribe((res: any) => {
       this.refresh();
     })
+  }
+
+  public addEspece(): void {
+    this.communicationService.insertEspece(this.newOiseau).subscribe((res: any) => {
+      this.refresh();
+    })
+  }
+
+  public changeNewScien(event: any): void {
+    const editField = event.target.textContent;
+    this.newOiseau.nomscientifique = editField;
+  }
+
+  public changeNewCommun(event: any): void {
+    const editField = event.target.textContent;
+    this.newOiseau.nomcommun = editField;
   }
 
 }

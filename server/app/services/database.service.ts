@@ -54,13 +54,13 @@ export class DatabaseService {
   public async createEspece(espece: EspeceOiseau): Promise<pg.QueryResult> {
     const client = await this.pool.connect();
 
-    if (!espece.nomscientifique || !espece.nomcommun || !espece.statutspeces || !espece.nomscientifiquecomsommer)
+    if (!espece.nomscientifique || !espece.nomcommun || !espece.statutspeces)
       throw new Error("Invalid create species values");
 
-    const values: string[] = [espece.nomscientifique, espece.nomcommun, espece.statutspeces, espece.nomscientifiquecomsommer];
-    const queryText: string = `INSERT INTO ornithologue_bd.especeoiseau VALUES($1, $2, $3);`;
+    const values: (string | null)[] = [espece.nomscientifique, espece.nomcommun, espece.statutspeces, espece.nomscientifiquecomsommer];
+    const queryText: string = `INSERT INTO ornithologue_bd.especeoiseau VALUES($1, $2, $3, $4);`;
 
-    const res = await client.query(queryText, values);
+    const res = await client.query(queryText, values as string[]);
     client.release();
     return res;
   }
