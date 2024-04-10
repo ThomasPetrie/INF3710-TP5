@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommunicationService } from '../communication.service';
 import { EspeceOiseau } from '../../../../common/tables/EspeceOiseau';
-
+import { Statut } from '../../../../common/tables/Statut';
 
 @Component({
   selector: 'app-especeoiseau',
@@ -17,6 +17,7 @@ export class EspeceoiseauComponent implements OnInit {
 
   especesOiseaux : EspeceOiseau[] = [];
   newOiseau: EspeceOiseau = { nomscientifique: 'Nom scientifique', nomcommun: 'Nom commun', statutspeces: "Statut d'espèce", nomscientifiquecomsommer: null };
+  Statut = Statut;
 
   constructor(private communicationService: CommunicationService) { }
 
