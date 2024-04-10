@@ -8,8 +8,8 @@ export class DatabaseService {
   // TODO: A MODIFIER POUR VOTRE BD
   public connectionConfig: pg.ConnectionConfig = {
     user: "postgres",
-    database: "ornithologue_bd",
-    password: "",
+    database: "TP5",
+    password: "4323jcmk",
     port: 5432,
     host: "127.0.0.1",
     keepAlive: true,
@@ -74,7 +74,8 @@ export class DatabaseService {
     if (espece.nomscientifique.length > 0) toUpdateValues.push(`nomscientifique = '${espece.nomscientifique}'`);
     if (espece.nomcommun && espece.nomcommun.length > 0) toUpdateValues.push(`nomcommun = '${espece.nomcommun}'`);
     if (espece.statutspeces && espece.statutspeces.length > 0) toUpdateValues.push(`statutspeces = '${espece.statutspeces}'`);
-    if (espece.nomscientifiquecomsommer && espece.nomscientifiquecomsommer.length > 0) toUpdateValues.push(`nomscientifiquecomsommer = '${espece.nomscientifiquecomsommer}'`);
+    if (espece.nomscientifiquecomsommer !== null) toUpdateValues.push(`nomscientifiquecomsommer = '${espece.nomscientifiquecomsommer}'`);
+    if (espece.nomscientifiquecomsommer === 'null') toUpdateValues.push(`nomscientifiquecomsommer = NULL`);
 
     if (
       espece.nomscientifique.length === 0 ||
