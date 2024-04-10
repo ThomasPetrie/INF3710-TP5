@@ -13,14 +13,12 @@
       </thead>
       <tbody>
         <tr *ngFor="let oiseau of especesOiseaux; let i = index">
-          <td class="contentCell" contenteditable="true" (blur)="changeScientifique($event, i)">{{ oiseau.nomscientifique }}</td>
+          <td class="contentCell" contenteditable="false">{{ oiseau.nomscientifique }}</td>
           <td class="contentCell" contenteditable="true" (blur)="changeCommun($event, i)">{{ oiseau.nomcommun }}</td>
           <td class="contentCell" contenteditable="true" (blur)="changeStatut($event, i)">{{ oiseau.statutspeces }}</td>
-          <td>
-          <select class="contentCell">
-            <div *ngFor="let oiseau of especesOiseaux">
-            <option value="oiseau.nomscientifique">{{oiseau.nomscientifique}}</option>
-            </div>
+          <td class="contentCell">
+          <select [(ngModel)]="oiseau.nomscientifiquecomsommer">
+            <option *ngFor="let oiseau of especesOiseaux" [value]="oiseau.nomscientifique">{{oiseau.nomscientifique}}</option>
           </select>
         </td>
           <td class="actionCell">

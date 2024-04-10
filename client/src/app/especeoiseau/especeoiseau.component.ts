@@ -23,11 +23,6 @@ export class EspeceoiseauComponent implements OnInit {
     this.getEspeces();
   }
 
-  public changeScientifique(event: any, i:number){
-    const editField = event.target.textContent;
-    this.especesOiseaux[i].nomscientifique = editField;
-  }
-
   public changeCommun(event: any, i:number){
     const editField = event.target.textContent;
     this.especesOiseaux[i].nomcommun = editField;
@@ -36,11 +31,6 @@ export class EspeceoiseauComponent implements OnInit {
   public changeStatut(event: any, i:number){
     const editField = event.target.textContent;
     this.especesOiseaux[i].statutspeces = editField;
-  }
-
-  public changePredator(event: any, i:number){
-    const editField = event.target.textContent;
-    this.especesOiseaux[i].nomscientifiquecomsommer = editField;
   }
 
   public updateHotel(i: number) {
