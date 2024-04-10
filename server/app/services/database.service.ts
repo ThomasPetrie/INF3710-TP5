@@ -9,7 +9,7 @@ export class DatabaseService {
   public connectionConfig: pg.ConnectionConfig = {
     user: "postgres",
     database: "ornithologue_bd",
-    password: "caniche20",
+    password: "",
     port: 5432,
     host: "127.0.0.1",
     keepAlive: true,

@@ -36,7 +36,13 @@
         <tr class="blank_row">
           <td class="contentCell" contenteditable="true" placeholder="Nom scientifique" #newScientifique></td>
           <td class="contentCell" contenteditable="true" placeholder="Nom commun" #newCommun></td>
-          <td class="contentCell" contenteditable="true" placeholder="Statut d'espèce" #newStatut></td>
+          <td class="contentCell" contenteditable="true" placeholder="Statut d'espèce" #newStatut>
+            <select>
+              <option [value]="Statut.Vulnerable">{{ Statut.Vulnerable }}</option>
+              <option [value]="Statut.PreoccupationMineure">{{ Statut.PreoccupationMineure }}</option>
+              <option [value]="Statut.NonMenacee">{{ Statut.NonMenacee }}</option>
+            </select>
+          </td>
           <td class="contentCell" contenteditable="true" placeholder="Nom de prédateur" #newPredateur></td>
           <td class="actionCell"></td>
       </tr>
