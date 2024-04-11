@@ -35,21 +35,21 @@
         </tr>
 
         <tr class="blank_row">
-          <td class="contentCell" contenteditable="true" (blur)="changeNewScien($event)">{{newOiseau.nomscientifique}}</td>
-          <td class="contentCell" contenteditable="true" #newHotelName (blur)="changeNewCommun($event)">{{newOiseau.nomcommun}}</td>
-          <td class="contentCell">
-          <select [(ngModel)]="newOiseau.statutspeces">
-            <option [value]="Statut.Vulnerable">{{ Statut.Vulnerable }}</option>
-            <option [value]="Statut.PreoccupationMineure">{{ Statut.PreoccupationMineure }}</option>
-            <option [value]="Statut.NonMenacee">{{ Statut.NonMenacee }}</option>
-          </select>
-        </td>
-          <td class="contentCell"  #newHotelCity >
+          <td class="contentCell" contenteditable="true" #newScientifique (blur)="changeNewScien($event)">{{newOiseau.nomscientifique}}</td>
+          <td class="contentCell" contenteditable="true" #newCommun (blur)="changeNewCommun($event)">{{newOiseau.nomcommun}}</td>
+          <td class="contentCell" #newStatut>
+            <select [(ngModel)]="newOiseau.statutspeces">
+              <option [value]="Statut.Vulnerable">{{ Statut.Vulnerable }}</option>
+              <option [value]="Statut.PreoccupationMineure">{{ Statut.PreoccupationMineure }}</option>
+              <option [value]="Statut.NonMenacee">{{ Statut.NonMenacee }}</option>
+            </select>
+          </td>
+          <td class="contentCell"  #newPredator >
             <select [(ngModel)]="newOiseau.nomscientifiquecomsommer">
               <option *ngFor="let oiseau of especesOiseaux" [value]="oiseau.nomscientifique">{{oiseau.nomscientifique}}</option>
             </select></td>
           <td class="actionCell"></td>
-      </tr>
+        </tr>
 
       </tbody>
     </table>

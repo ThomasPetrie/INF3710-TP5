@@ -55,18 +55,21 @@ export class EspeceoiseauComponent implements OnInit {
   public updateEspece(i: number): void {
     this.communicationService.updateEspece(this.especesOiseaux[i]).subscribe((res: any) => {
       this.refresh();
+      this.showAlert(`La modification est réussie!`);
     })
   }
 
   public deleteEspece(nomscientifique: string){
     this.communicationService.deleteEspece(nomscientifique).subscribe((res: any) => {
       this.refresh();
+      this.showAlert('La suppression est réussie!')
     })
   }
 
   public addEspece(): void {
     this.communicationService.insertEspece(this.newOiseau).subscribe((res: any) => {
       this.refresh();
+      this.showAlert(`L'ajout est réussi!`);
     })
   }
 
@@ -80,4 +83,8 @@ export class EspeceoiseauComponent implements OnInit {
     this.newOiseau.nomcommun = editField;
   }
 
+  public showAlert(message: string) {
+    alert(message);
+  }
+  
 }
